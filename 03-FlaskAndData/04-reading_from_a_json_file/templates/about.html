@@ -2,7 +2,6 @@
 <!-- inherit from base.html -->
 {% block content %}
 
-{{ company_data }}
 
 <h2>{{ page_title }}</h2>
 
@@ -19,31 +18,45 @@
   leave on other business, welcomed a fourteenth to fill into their party.
 </p>
 
+{% for member in company %}
+
 <div class="row featurette">
+
+{% if loop.index % 2 != 0 %}
+
   <div class="col-md-7">
-    <h3>Thorin Oakenshield</h3>
-    <h5>Early Life </h5>
+    <h3>{{ loop.index }} {{ member.name }}</h3>
     <p>
-      In the year TA 2746, Thorin II was born to Dwarven prince Thráin II in the
-      mountain city of The Lonely Mountain. Early in his youth, he and the other
-      Dwarves of the Lonely Mountain were forced to flee by the dragon Smaug in TA
-      2770. While in exile, he quickly grew to become a capable warrior. This was
-      demonstrated when he participated in the Battle of Azanulbizar in TA 2799.
-      He marched with one of the Dwarven armies beneath the East-gate of Moria.
-      At some point in the fighting, his shield broke, and using an oaken tree branch
-      found on the floor as a shield, he gained the epithet "Oakenshield," which would
-      remain with him even in death.
+      {{ member.description }}
     </p>
-    <p>
-      Thorin eventually became King-in-Exile of Durin's Folk after his father went missing, and presumably died in the dungeons of Dol Guldur.
-    </p>
-    <a href="https://lotr.fandom.com/wiki/Thorin_and_Company">[...]</a>
+    <a href="https://lotr.fandom.com/wiki/Thorin_and_Company" target="_blank">[...]</a>
   </div>
   <div class="col-md-5">
-    <img src="https://upload.wikimedia.org/wikipedia/en/e/ed/Thorin%2C_from_the_Hobbit.jpg" alt="Thorin Oakenshield">
+    <img src="{{ member.image_source }}" alt="{{ member.name }}" class="featurette-image img-responsive">
   </div>
+  {% else %}
+  <div class="col-md-5">
+    <img src="{{ member.image_source }}" alt="{{ member.name }}" class="featurette-image img-responsive">
+  </div>
+  <div class="col-md-7">
+    <h3>{{ loop.index }} {{ member.name }}</h3>
+    <p>
+      {{ member.description }}
+    </p>
+    <a href="https://lotr.fandom.com/wiki/Thorin_and_Company" target="_blank">[...]</a>
+  </div>
+{% endif %}
+
 </div>
-<div class="row featurette">
+
+{% if loop.index != 13 %}
+
+<hr class="featurette-divider">
+
+{% endif %}
+
+{% endfor %}
+<!-- <div class="row featurette">
   <div class="col-md-5">
     <img src="https://vignette.wikia.nocookie.net/lotr/images/b/b4/The-Hobbit-Fili-and-Kili.jpg/revision/latest/scale-to-width-down/350?cb=20110714202952" alt="Fíli and Kíli">
   </div>
@@ -68,8 +81,8 @@
     </p>
     <a href="https://lotr.fandom.com/wiki/F%C3%ADli_and_K%C3%ADli">[...]</a>
   </div>
-</div>
-<div class="row featurette">
+</div> -->
+<!-- <div class="row featurette">
   <div class="col-md-7">
     <h3>Óin</h3>
     <h5>Third Age</h5>
@@ -311,6 +324,6 @@
     </p>
     <a href="https://lotr.fandom.com/wiki/Gandalf">[...]</a>
   </div>
-</div>
+</div> -->
 
 {% endblock %}

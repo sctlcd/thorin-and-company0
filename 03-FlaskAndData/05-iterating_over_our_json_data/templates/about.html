@@ -25,7 +25,7 @@
 {% if loop.index % 2 != 0 %}
 
   <div class="col-md-7">
-    <h3><a href="03-FlaskAndData/05-iterating_over_our_json_data/templates/about/{{ member.url }}">{{ loop.index }} {{ member.name }}</a></h3>
+    <h3><a href="05-iterating_over_our_json_data/templates/about/{{ member.url }}">{{ loop.index }} {{ member.name }}</a></h3>
     <p>
       {{ member.description }}
     </p>
@@ -39,7 +39,7 @@
     <img src="{{ member.image_source }}" alt="{{ member.name }}" class="featurette-image img-responsive">
   </div>
   <div class="col-md-7">
-    <h3><a href="03-FlaskAndData/05-iterating_over_our_json_data/templates/about/{{ member.url }}">{{ loop.index }} {{ member.name }}</a></h3>
+    <h3><a href="05-iterating_over_our_json_data/templates/about/{{ member.url }}">{{ loop.index }} {{ member.name }}</a></h3>
     <p>
       {{ member.description }}
     </p>
